@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<!--Assignment 1: HTML Tables -->
+<!--Ethan -->
+<!--Creating a basic table. -->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Assignment 1 Table</title>
+    </head>
+
+    <body>
+        <p><h1><strong>Courses for Fall 2022</strong></h1></p>
+        <hr width="50%" align="left"> <!--horizontal rule-->
+        <p><strong> <!--Summary Header-->
+            Assignment 1 Table | Course Number (first column) | Courses (second column)
+            | Professors (third column) | Credit Hours (fourth column) | Books (fifth column)
+        </strong>
+        </p>
+        <table border = "8"> <!--Defined table border-->
+            <caption><strong>Table of Courses</strong></caption> <!--Header Row for Table-->
+            <thead>
+                <tr>
+                  <th>Course Number</th>
+                  <th>Course</th>
+                  <th>Professor</th>
+                  <th>Credit Hours</th>
+                  <th>Books</th>  
+                </tr>
+            </thead>
+            
+            <tbody> <!--Following Copy/Pasted and Edited Course Information-->
+                <tr>
+                    <td>WRIT 3150</td>
+                    <td>Business Writing</td>
+                    <td>Katz, Carrie</td>
+                    <td>3</td>
+                    <td><img src = "writebook.jpg" width = "150" height = "90" alt = "Writing that Works: Communicating Effectively on the Job"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>MATH 2200</td>
+                    <td>Calculus II</td>
+                    <td>Bourouihiya, Abdelkrim</td>
+                    <td>4</td>
+                    <td><img src = "mathbook.png" width = "150" height = "90" alt = "Calculus: Early Transcendentals - MyLabMath Access"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>BIOL 1080</td>
+                    <td>Human Biology</td>
+                    <td>De, Santanu</td>
+                    <td>3</td>
+                    <td><img src = "biobook.jpg" width = "150" height = "90" alt = "Human Biology - Modified Mastering Biology"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>CSIS 3020</td>
+                    <td>Web Programming and Design</td>
+                    <td>Brogan, Connor O'</td>
+                    <td>3</td>
+                    <td><img src = "programmingbook.png" width = "150" height = "90" alt = "Internet and World Wide Web by Deitel, P.J."> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>CSIS 3500</td>
+                    <td>Networks and Data Communication</td>
+                    <td>Barreto, Charmaine</td>
+                    <td>3</td>
+                    <td><img src = "networksbook.png" width = "150" height = "90" alt = "Computer Networking by Kurose"> 
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot> <!--Footer-->
+                <tr>
+                    <td><strong>Total Credits:</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td><strong>16</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+        
+    </body>
+
+</html>

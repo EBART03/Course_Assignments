@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<!--Assignment 3-->
+<!--Ethan-->
+<!--Hovering Images-->
+
+<html>
+    <head>
+        <meta charset = 'utf-8'>
+        <title>Good Eats | Pt. II</title>
+
+        <style>
+            .vertical-menu {
+                width: 480px;
+                height: 640px;
+            }
+
+            .vertical-menu a {
+                font-family: 'Calibri';
+                background-color: rgb(41, 43, 43);
+                color: rgb(219, 219, 219);
+                display: block;
+                text-decoration: wavy;
+            }
+            .vertical-menu a:hover {
+                font-family: 'arial';
+                text-decoration: underline;
+                background-color: rgb(181, 37, 37);
+                color: rgb(255, 169, 169);
+            }
+            .vertical-menu a:active {
+                background-color: rgb(194, 0, 0);
+                color: rgb(255, 0, 60);
+            }
+            .dropdown {
+                width:480px;
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display:none;
+                position: center;
+                z-index: 1;
+            }
+            .dropdown:hover .dropdown-content {
+                display:block;
+            }
+
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 55%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <p>
+            <h3>Assignment III | Dropdown</h3>
+        </p>
+        <hr align="left">
+        <div class = "vertical-menu">
+            <div class="dropdown">
+                <a>Pizza</a>
+                <div class = "dropdown-content">
+                    <img src = "imgs/pizza.jpg" alt = "Pizza" width= "80%"  class = "center"> 
+                </div>
+            </div>
+            <div class = "dropdown">
+                <a>Pasta</a>
+                <div class="dropdown-content">
+                    <img src = "imgs/Macaroni-Salad.jpg" alt = "Macaroni Salad" width="80%" class = "center">
+                    <img src = "imgs/Spaghetti-and-Meatballs.jpg" alt = "Spaghetti and Meatballs" width ="80%" class = "center">
+                </div>
+            </div> 
+            <div class = "dropdown">
+                <a>Potatoes</a>
+                <div class="dropdown-content">
+                    <img src = "imgs/potatoes.jpg" alt = "Roasted Potatoes" width="80%" class = "center">
+                    <img src = "imgs/french fries.jpg" alt = "French Fries" width ="80%" class = "center">
+                </div>
+            </div> 
+            <div class = "dropdown">
+                <a>Fish</a>
+                <div class="dropdown-content">
+                    <img src = "imgs/Salmon-potato-traybake-bb6e331.jpg" alt = "Salmon and Lemons." width="100%" class = "center">                </div>
+            </div> 
+        </div>
+    </body>
+
+</html>

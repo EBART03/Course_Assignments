@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--Mini Project 1-->
+<!--Ethan Barthelemeny-->
+<!--Animanga Guessing Game-->
+
+<!--
+    The game involves the following:
+
+    1. Start "Game" Button in which initiates the Flashcard Guessing Game.
+    2. The cover or imagine of the media which is shown to be guessed.
+    3. Upon getting the answer right, you'll be awarded a point.
+    4. Getting the answer wrong will skip to the next answer and mark it wrong.
+-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+
+        <script src="https://code.jquery.com/jquery-3.10.js"></script>
+
+        <title>Animanga Guessing Game</title>
+
+        <style>  
+            body{
+                margin: 0;
+                padding: 0;
+                background:rgb(34, 34, 34);
+                top: 25%;
+
+            }
+            
+            div {
+                text-align: center;
+                color: whitesmoke;
+            }
+            
+            img {
+                width: 25%;
+                height: 25%;
+                border: 5px solid black;          
+            }
+
+
+            div input
+            {
+                background-color:rgb(0, 0, 0);
+                border: 5px double rgb(219, 219, 219);
+                color: whitesmoke;
+                padding: 8px 15px;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px; 
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            .next
+            {
+                background-color:rgb(255, 255, 255);
+                border: 5px double rgb(0, 0, 0);
+                color: rgb(0, 0, 0);
+                padding: 8px 15px;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px; 
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            .show_correct
+            {
+                background-color:rgb(165, 224, 157);
+                border: 5px double rgb(0, 0, 0);
+                color: rgb(34, 34, 34);
+                padding: 8px 15px;
+                text-align: center;
+                display: inline-block;
+                font-size: 16px; 
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+
+
+        </style>
+
+        <script>
+            var int = 0;
+            var questionsSeen = [];
+            var imagesSeen = [];
+            var questionNumber = 1;
+            var correctQuestions = 0;
+
+            var cards = [ 
+                ["https://i.imgur.com/ZewEpg6.png","Attack on Titan","Attack on Titan, Season 4 Poster"], 
+                ["https://i.imgur.com/2KGaJDV.jpg","Chainsaw Man", "Chainsaw Man Volume Cover"],
+                ["https://i.imgur.com/2yJIGDu.jpg","Demon Slayer","Demon Slayer Anime Poster"],
+                ["https://i.imgur.com/UqjhWs3.jpg","Digimon","Digimon Poster"],
+                ["https://i.imgur.com/Nu0QGqN.png","Dr Stone","Dr.Stone Poster"],
+                ["https://i.imgur.com/EeU3cHC.jpg","Dragon Ball Z","Dragon Ball Z, Goku Picture"],
+                ["https://i.imgur.com/pLqdABj.jpg","Hunter x Hunter", "Hunter x Hunter, Greed Island Arc Poster"],
+                ["https://i.imgur.com/eSdS8uq.png","Jojos Bizarre Adventure","Jojos Bizarre Adeventure, Part 1 and 2 Poster"],
+                ["https://i.imgur.com/G5DOWkr.jpg","Jujutsu Kaisen","Jujutsu Kaisen Volume 1 Cover"],
+                ["https://i.imgur.com/uevWjiH.jpg","Konosuba","Konsuba Anime Poster"],
+                ["https://i.imgur.com/fdUWM1L.png","Love is War","Love is War Anime Poster"],
+                ["https://i.imgur.com/usQQKrh.png","Mashle","Mashle Manga Cover"],
+                ["https://i.imgur.com/3BoO2Ge.png","Mob Psycho 100","Mob Psycho 100 Season 2 Poster"],
+                ["https://i.imgur.com/gah0iX7.png","Naruto", "Naruto Anime Poster"],
+                ["https://i.imgur.com/GxuklZ5.jpg","One Punch Man", "One Punch Man Season 1 Poster"],
+                ["https://i.imgur.com/yR0piHz.jpg","Pokemon","Pokemon Go Fanart"],
+                ["https://i.imgur.com/wRNiq4c.png","Promised Neverland", "The only good season of the anime poster"],
+                ["https://i.imgur.com/IY5NsO1.png","Soul Eater","Soul Eater anime poster"],
+                ["https://i.imgur.com/AFV8XbP.jpg","Spy x Family","Spy x Family, Anime Moment"],
+                ["https://i.imgur.com/YHwaGiN.jpg","Undead Unluck","Undead Unluck Poster"]];
+
+            //Returns and sets a random image from our list of 20
+            function setImg(){
+                int = Math.floor(Math.random() * 20);
+                while (questionsSeen.includes(int)){
+                    int = Math.floor(Math.random() * 20);
+                    if(questionNumber == 21){
+                        alert("GAME OVER!");
+                        return;
+                    }
+                }
+
+                questionsSeen.push(int);
+
+                document.getElementById("picture").setAttribute("src", cards[int][0]);
+                document.getElementById("picture").setAttribute("alt", cards[int][2]);
+            }
+        
+            function setRandButtons(){
+                var answerButton = Math.floor((Math.random() * 4) + 1);
+            
+                var rand1 = Math.floor(Math.random() * 20);
+
+                while(rand1 == int){
+                    rand1 = Math.floor(Math.random() * 20);
+                }
+            
+                var rand2 = Math.floor(Math.random() * 20);
+                while(rand2 == int || rand2 == rand1){
+                    rand2 = Math.floor(Math.random() * 20);
+                }
+            
+                var rand3 = Math.floor(Math.random() * 20);
+                while(rand3 == int || rand3 == rand1 || rand3 == rand2){
+                    rand3 = Math.floor(Math.random() * 20);
+                }
+            
+                if(answerButton == 1){
+                    document.getElementById("button1").setAttribute("value", cards[int][1]);
+                    document.getElementById("button2").setAttribute("value", cards[rand1][1]);
+                    document.getElementById("button3").setAttribute("value", cards[rand2][1]);
+                    document.getElementById("button4").setAttribute("value", cards[rand3][1]);
+                }
+                if(answerButton == 2){
+                    document.getElementById("button2").setAttribute("value", cards[int][1]);
+                    document.getElementById("button1").setAttribute("value", cards[rand1][1]);
+                    document.getElementById("button3").setAttribute("value", cards[rand2][1]);
+                    document.getElementById("button4").setAttribute("value", cards[rand3][1]);
+                }
+                if(answerButton == 3){
+                    document.getElementById("button3").setAttribute("value", cards[int][1]);
+                    document.getElementById("button1").setAttribute("value", cards[rand1][1]);
+                    document.getElementById("button2").setAttribute("value", cards[rand2][1]);
+                    document.getElementById("button4").setAttribute("value", cards[rand3][1]);
+                }
+                if(answerButton == 4){
+                    document.getElementById("button4").setAttribute("value", cards[int][1]);
+                    document.getElementById("button1").setAttribute("value", cards[rand1][1]);
+                    document.getElementById("button2").setAttribute("value", cards[rand2][1]);
+                    document.getElementById("button3").setAttribute("value", cards[rand3][1]);
+                }
+            }
+            
+            function start(){
+                setImg();
+                setRandButtons();
+
+                questionCount();
+
+
+            }
+
+            function nextButton(){
+                questionNumber++;
+                setImg();
+                setRandButtons();
+
+                questionCount();
+            }
+
+            function questionCount(){
+               document.getElementById("questions").innerHTML = "Question " + questionNumber + " out of &nbsp;<strong>20</strong>"; 
+            }
+
+            window.addEventListener("load", start, false);
+
+        </script>
+    </head>
+    <body>
+        <div id= "questions" style="font-size:32px; font-family:Helvetica ;"> </div><br>
+
+        <div>
+            <img id = "picture" src = "images/Blank_Square.svg.png" alt = "blank square"> 
+        </div>
+        <div>
+            <form action="/action_page.php">
+                <input id ="button1" type="button" name="test" value="">
+                
+                <input id ="button2" type="button" name="test" value="">
+
+                
+                <input id ="button3" type="button" name="test" value="">
+
+                
+                <input id ="button4" type="button" name="test" value="">
+
+
+            </form>
+        </div>
+        <div>
+            <input id = "showCorrect" value = "Show Correct" type="button" class = "show_correct" onclick="showCorrect()">                
+            <input id = "nextButton" type="button" value="Next" onclick="nextButton()" class = "next">    
+        </div>
+
+        <footer><br><br><br>
+            <p style="font-size:12px; color:white;" align="center">
+                Couldn't figure out how to: do the correct answers; make the buttons clickable without using radio, and trying to do it by that way it was a nightmare. <br>
+                The correct answer / verification function for the code. I wanted to turn in something so it wasn't just a missing grade.
+            </p>
+        </footer>
+    </body>
+</html>

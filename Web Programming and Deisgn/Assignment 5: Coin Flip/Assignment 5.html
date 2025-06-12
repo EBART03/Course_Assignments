@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+
+<!--Assignment 5-->
+<!--Ethan Barthelemy-->
+<!--Coin Flip-->
+
+<!--Page Scripting-->
+<!--Javascript Coding-->
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Coin Flip</title>
+
+        <style type = "text/css">
+            img {
+                margin-right: 10px;
+                width: 10%;
+            }
+
+           
+        </style>
+
+        <script>
+            var freq1 = 0;
+            var freq2 = 0;
+            var totalFlips = 0;
+
+            function start ()
+            {
+                var button = document.getElementById("rollButton");
+                button.addEventListener( "click", flipCoin, false );
+            }
+
+            // flip the coin
+            function flipCoin()
+            {
+                var side;
+                
+                for (var i = 1; i <= 10; ++i){
+                    side = Math.floor(1 + Math.random()*2);
+                    tallyFlips(side);
+                    setImage(i, side);
+                    ++totalFlips;
+                }
+
+                updateFreqTable();
+
+            }// end function flipCoin
+                
+            function tallyFlips(side){
+                switch(side){
+                    case 1:
+                        ++freq1; //heads
+                        break;
+                    case 2:
+                        ++freq2; //tails
+                        break;
+                }
+            } 
+
+            function setImage( coinNum, sides )
+            {
+                var coinImg = document.getElementById("coin" + coinNum);
+                
+                if ( sides == 1 ) {
+                    coinImg.setAttribute("src", "images/heads.jpg");
+                    coinImg.setAttribute("alt", "coin heads");
+                } else {
+                    coinImg.setAttribute("src", "images/tails.jpg");
+                    coinImg.setAttribute("alt", "coin tails");
+                }
+            }
+
+            function updateFreqTable(){
+                var tableDiv = document.getElementById("freqTableDiv");
+                
+                tableDiv.innerHTML = "<table>"+
+                "<caption>Coin Rolling Frequencies</caption>"+
+                "<thead><th>Side</th>"+
+                "<th>Frequency</th>"+
+                "<th>Percent</th></thead>"+
+                    
+                "<tbody><tr><td>Heads</td><td>"+ freq1 + "</td><td>"+
+                formatPercent(freq1 / totalFlips) + "</td></tr>"+
+                    
+                "<tr><td>Tails</td><td>"+ freq2 + "</td><td>"+
+                formatPercent(freq2 / totalFlips) + "</td></tr>"+
+                    
+                "</tbody></table>";
+            }
+            
+            function formatPercent(value){
+                value *= 100;
+                return value.toFixed(2);
+            }
+
+            window.addEventListener( "load" , start, false);
+
+
+        </script>
+
+    </head>
+    <h2><strong><i>Coin Flipping Simulator!!!</i></strong></h2>
+    <h3>This totally wasn't harder than it should've been.</h3>
+        <body>
+            <p>
+                <img id = "coin1" src = "images/Blank_Square.svg.png" alt = "coin 1 image"/>
+                <img id = "coin2" src = "images/Blank_Square.svg.png" alt = "coin 2 image"/>
+                <img id = "coin3" src = "images/Blank_Square.svg.png" alt = "coin 3 image"/>
+                <img id = "coin4" src = "images/Blank_Square.svg.png" alt = "coin 4 image"/>
+                <img id = "coin5" src = "images/Blank_Square.svg.png" alt = "coin 5 image"/>
+            </p>
+            <p>
+                <img id = "coin6" src = "images/Blank_Square.svg.png" alt = "coin 6 image"/>
+                <img id = "coin7" src = "images/Blank_Square.svg.png" alt = "coin 7 image"/>
+                <img id = "coin8" src = "images/Blank_Square.svg.png" alt = "coin 8 image"/>
+                <img id = "coin9" src = "images/Blank_Square.svg.png" alt = "coin 9 image"/>
+                <img id = "coin10" src = "images/Blank_Square.svg.png" alt = "coin 10 image"/>
+            </p>
+
+            <form action = "#">
+                <input id = "rollButton" type = "button" value = "Toss">
+            </form>
+            <div id="freqTableDiv"></div>
+
+        </body>
+</html>

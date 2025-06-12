@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+
+<!--Assignment 4-->
+<!--Ethan-->
+<!--Create a Webpage: CSS Scripting, Images-->
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ethan Barthelemy Web page
+        </title>
+
+        <style>
+            .horizontal-menu {
+                background-color: rgb(41, 43, 43);
+            }
+
+            body {
+                background-image: url("images/desktop_background_2.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: 100% 100%;
+                z-index: 1;
+            }
+
+            .horizontal-menu a {                
+                font-family: 'Calibri';
+                background-color: rgb(41, 43, 43);
+                color: rgb(225, 53, 53);
+                display: block;
+                text-align: center;
+                padding: 12px 4px;
+            }
+            .horizontal-menu a:hover {
+                text-decoration: underline;
+                background-color: rgb(181, 37, 37);
+                color: rgb(247, 245, 245);
+            }
+
+            .dropdown {
+                width: 240px;
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display:none;
+                position: center;
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                background-color: rgb(91, 91, 91);
+                color:rgb(236, 72, 102);
+                text-decoration: underline;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .center {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 75%;
+            }
+
+            .special {
+                width: 160px;
+                padding: 2px;
+                border: 3px dashed black;
+                margin: 0;
+            }
+        </style>
+        </style>
+    </head>
+
+    <body>
+        <div class = "horizontal-menu" align = "center">
+            <div class = "dropdown">
+                <a href="Sites">Favorite Sites</a>
+                <div class = "dropdown-content">
+                    <a href = "https://www.youtube.com/">Youtube</a>
+                    <a href = "https://www.google.com/">Google</a>
+                    <a href = "https://www.netflix.com/">Netflix</a>
+                    <a href = "https://discord.com/">Discord</a>
+                </div>
+            </div>
+            
+            <div class = "dropdown">
+                <a href = "Book">Favorite Story</a>
+                <div class = "dropdown-content">
+                    <div class = "special">
+                        <img src = "images/Jujutsu_Kaisen.jpg" alt = "Jujutsu Kaisen by Gege Akutami"
+                        class = "center">
+                    </div>
+                </div> 
+            </div>
+            
+            <div class="dropdown">
+                <a href="Foods">Favorite Foods</a>
+                <div class = "dropdown-content">
+                    <img src = "images/pizza.jpg" alt = "Pizza" width= "80%"  class = "center"> 
+                    <img src = "images/Spaghetti-and-Meatballs.jpg" alt="Spaghetti and Meatballs" width="80%" class = "center">
+                    <img src = "images/french fries.jpg" alt= "French fries" width = "80%" class = "center">
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="Song">Songs</a>
+                <div class = "dropdown-content">
+                    <audio controls>
+                        <source src = "videos/Cory_In_The_House.mp3" alt = "Cory in House Theme Song">
+                    </audio>
+                </div>
+            </div>
+
+
+        </div>
+        <table border = "4" align = "center"> 
+            <caption>Table of Courses</caption>
+            <thead>
+                <tr>
+                    <th roswpan "2">
+                        <img src = "images/Cory_in_the_House.jpg"
+                        width = "132" height = "167"
+                        alt = "Cory in the House Poster by Disney Channel"
+                    </th>
+
+                    <th colspan = "4">
+                        <strong>Courses at Nova Southeastern University</strong><br>
+                        Fall 2022 
+                    </th>
+                </tr>             
+                <tr>
+                    <th>Course Number</th>
+                    <th>Course</th>
+                    <th>Professor</th>
+                    <th>Credit Hours</th>
+                    <th>Books</th>  
+                </tr>
+            </thead>
+
+            <tbody> <!--Following Copy/Pasted and Edited Course Information-->
+                <tr>
+                    <td>WRIT 3150</td>
+                    <td>Business Writing</td>
+                    <td>Katz, Carrie</td>
+                    <td>3</td>
+                    <td><img src = "images/writebook.jpg" width = "150" height = "90" alt = "Writing that Works: Communicating Effectively on the Job"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>MATH 2200</td>
+                    <td>Calculus II</td>
+                    <td>Bourouihiya, Abdelkrim</td>
+                    <td>4</td>
+                    <td><img src = "images/mathbook.png" width = "150" height = "90" alt = "Calculus: Early Transcendentals - MyLabMath Access"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>BIOL 1080</td>
+                    <td>Human Biology</td>
+                    <td>De, Santanu</td>
+                    <td>3</td>
+                    <td><img src = "images/biobook.jpg" width = "150" height = "90" alt = "Human Biology - Modified Mastering Biology"> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>CSIS 3020</td>
+                    <td>Web Programming and Design</td>
+                    <td>Brogan, Connor O'</td>
+                    <td>3</td>
+                    <td><img src = "images/programmingbook.png" width = "150" height = "90" alt = "Internet and World Wide Web by Deitel, P.J."> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>CSIS 3500</td>
+                    <td>Networks and Data Communication</td>
+                    <td>Barreto, Charmaine</td>
+                    <td>3</td>
+                    <td><img src = "images/networksbook.png" width = "150" height = "90" alt = "Computer Networking by Kurose"> 
+                    </td>
+                </tr>
+            </tbody>
+
+            <tfoot> <!--Footer-->
+                <tr>
+                    <td colspan='5' align = "center"><strong>Total Credits:</strong>    16    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+    <footer>
+        <p align = "center">
+            Created by your Ethan Barthelemy (eb1652@mynsu.nova.edu)
+        </p>
+    </footer>
+
+</html>
